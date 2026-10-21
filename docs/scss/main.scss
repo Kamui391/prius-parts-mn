@@ -1,0 +1,10 @@
+// 1. Bulma
+@import "../../node_modules/bulma/bulma";
+
+// 2. Төслийн өөрийн хэв маяг (partial файлууд)
+@import "tokens";
+@import "base";
+@import "layout";
+@import "components";
+@import "navbar";
+@import "footer";

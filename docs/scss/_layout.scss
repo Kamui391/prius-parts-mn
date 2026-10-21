@@ -1,0 +1,140 @@
+// ===== Хуудасны бүтэц: hero, section, grid, cta =====
+.app-page {
+  animation: app-fade 0.35s ease both;
+}
+
+@keyframes app-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.app-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0 5rem;
+  background: var(--app-hero);
+  color: #fff;
+
+  // чимэглэлийн дугуйнууд
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+  }
+  &::before {
+    width: 420px;
+    height: 420px;
+    right: -120px;
+    top: -160px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  &::after {
+    width: 260px;
+    height: 260px;
+    right: 18%;
+    bottom: -150px;
+    background: rgba(245, 166, 35, 0.2);
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
+  &__title {
+    max-width: 780px;
+    margin: 0.9rem 0 1rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.12;
+    color: #fff;
+  }
+  &__text {
+    max-width: 640px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.86);
+  }
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  &.is-compact {
+    padding: 3rem 0 2.75rem;
+    .app-hero__title {
+      margin-top: 0;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+    }
+  }
+}
+
+.app-eyebrow {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.app-section {
+  padding: 3.5rem 0;
+
+  &.is-alt {
+    background: var(--app-surface-2);
+  }
+  &__head {
+    max-width: 640px;
+    margin: 0 auto 2.25rem;
+    text-align: center;
+  }
+  &__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+  }
+  &__text {
+    margin-top: 0.5rem;
+    color: var(--app-muted);
+  }
+}
+
+.app-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  &.is-tight {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+.app-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem 2.5rem;
+  border-radius: $radius;
+  background: var(--app-hero);
+  color: #fff;
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+  }
+  p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}

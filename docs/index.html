@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Prius машины эд ангийн үнийн лавлах, үнийн тооцоолуур" />
+    <meta name="keywords" content="prius, toyota, hybrid, эд анги, үнэ, тооцоолуур" />
+    <meta name="theme-color" content="#0e7c86" />
+    <link rel="icon" href="./img/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script>
+      // Харагдацыг (тод / харанхуй) хуудас зурагдахаас өмнө тохируулж, анивчихаас сэргийлнэ.
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    </script>
+    <script defer src="./js/fontawesomeall.min.js"></script>
+    <title>Prius Parts</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <main id="app" class="app-main"></main>
+    <div id="footer"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

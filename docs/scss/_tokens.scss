@@ -1,0 +1,44 @@
+// ===== Өнгө, хэмжээсийн үндсэн тогтмолууд =====
+$ink: #0b1f2a;
+$teal: #0e7c86;
+$amber: #f5a623;
+$radius: 18px;
+$radius-sm: 12px;
+
+// Тод горимын өнгөнүүд (CSS хувьсагч)
+:root {
+  --app-bg: #f3f8f9;
+  --app-surface: #ffffff;
+  --app-surface-2: #e9f3f5;
+  --app-text: #{$ink};
+  --app-muted: #5a707b;
+  --app-border: #d9e6ea;
+  --app-accent: #{$teal};
+  --app-accent-2: #{$amber};
+  --app-on-accent: #ffffff;
+  --app-glass: rgba(255, 255, 255, 0.82);
+  --app-shadow: 0 12px 32px rgba(11, 31, 42, 0.12);
+  --app-shadow-sm: 0 2px 10px rgba(11, 31, 42, 0.08);
+  --app-hero: linear-gradient(135deg, #082f38 0%, #0e7c86 58%, #19b5a5 100%);
+
+  // Bulma-ийн primary өнгийг төслийн өнгөтэй тааруулна
+  --bulma-primary-h: 185deg;
+  --bulma-primary-s: 81%;
+  --bulma-primary-l: 29%;
+}
+
+// Харанхуй горим: <html data-theme="dark">
+[data-theme="dark"] {
+  --app-bg: #071319;
+  --app-surface: #0f212b;
+  --app-surface-2: #14303c;
+  --app-text: #e6f1f4;
+  --app-muted: #8fa6b1;
+  --app-border: #1d3844;
+  --app-accent: #2dd4bf;
+  --app-on-accent: #04222a;
+  --app-glass: rgba(7, 19, 25, 0.82);
+  --app-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --app-shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --app-hero: linear-gradient(135deg, #041a20 0%, #0a4f59 58%, #0e7c86 100%);
+}

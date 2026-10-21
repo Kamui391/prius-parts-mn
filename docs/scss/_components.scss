@@ -1,0 +1,292 @@
+// ===== Давтан ашиглагдах хэсгүүд: товч, карт, chip, form, тооцоолуур =====
+.button.app-btn {
+  height: 3rem;
+  padding: 0 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--app-shadow);
+  }
+  &--accent,
+  &--accent:hover {
+    background: var(--app-accent-2);
+    color: #2a1900;
+  }
+  &--ghost,
+  &--ghost:hover {
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    background: transparent;
+    color: #fff;
+  }
+  &--ghost:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+  &--solid,
+  &--solid:hover {
+    background: var(--app-accent);
+    color: var(--app-on-accent);
+  }
+}
+
+.app-card {
+  padding: 1.6rem;
+  border: 1px solid var(--app-border);
+  border-radius: $radius;
+  background: var(--app-surface);
+  box-shadow: var(--app-shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--app-shadow);
+  }
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--app-accent) 14%, transparent);
+    color: var(--app-accent);
+    font-size: 1.2rem;
+  }
+  &__title {
+    margin-bottom: 0.35rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  &__text {
+    color: var(--app-muted);
+  }
+}
+
+.app-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.4rem 1rem;
+  border: 1px solid var(--app-border);
+  border-radius: $radius-sm;
+  background: var(--app-surface);
+  color: var(--app-text);
+  font-weight: 600;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  i {
+    font-size: 1.6rem;
+    color: var(--app-accent);
+  }
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--app-accent);
+    box-shadow: var(--app-shadow-sm);
+    color: var(--app-text);
+  }
+}
+
+.app-gen {
+  padding: 1.4rem 1rem;
+  border: 1px solid var(--app-border);
+  border-radius: $radius-sm;
+  background: var(--app-surface);
+  text-align: center;
+
+  strong {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--app-accent);
+  }
+  span {
+    font-size: 0.9rem;
+    color: var(--app-muted);
+  }
+}
+
+// --- хайлтын самбар ---
+.app-panel {
+  padding: 1.75rem;
+  border: 1px solid var(--app-border);
+  border-radius: $radius;
+  background: var(--app-surface);
+  box-shadow: var(--app-shadow-sm);
+}
+
+.app-label {
+  margin: 1.25rem 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+
+.app-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.app-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--app-border);
+  border-radius: 999px;
+  background: var(--app-surface);
+  color: var(--app-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--app-accent);
+  }
+  &.is-active {
+    border-color: var(--app-accent);
+    background: var(--app-accent);
+    color: var(--app-on-accent);
+  }
+}
+
+.app-summary {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  background: var(--app-surface-2);
+  font-weight: 600;
+  color: var(--app-muted);
+}
+
+.app-empty {
+  margin-top: 1.5rem;
+  padding: 3rem 1.5rem;
+  border: 2px dashed var(--app-border);
+  border-radius: $radius;
+  text-align: center;
+  color: var(--app-muted);
+
+  i {
+    margin-bottom: 0.75rem;
+    font-size: 2.2rem;
+    color: var(--app-accent);
+  }
+  h3 {
+    font-weight: 700;
+    color: var(--app-text);
+  }
+}
+
+// --- form ---
+.field .label {
+  font-weight: 600;
+  color: var(--app-text);
+}
+
+.input.app-input {
+  border-color: var(--app-border);
+  border-radius: $radius-sm;
+  background: var(--app-surface);
+  color: var(--app-text);
+
+  &:focus {
+    border-color: var(--app-accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--app-accent) 25%, transparent);
+  }
+}
+
+// --- тооцоолуур ---
+.app-calc {
+  display: grid;
+  align-items: start;
+  gap: 1.5rem;
+  grid-template-columns: 1.2fr 1fr;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-result {
+  position: sticky;
+  top: 96px;
+  padding: 2rem;
+  border-radius: $radius;
+  background: var(--app-hero);
+  box-shadow: var(--app-shadow);
+  color: #fff;
+
+  h3 {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  &__total {
+    margin: 0.25rem 0 1.25rem;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.9);
+
+    strong {
+      color: #fff;
+    }
+  }
+  &__note {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// --- жагсаалт, 404 ---
+.app-list {
+  list-style: none;
+  margin-top: 0.5rem;
+
+  li {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    color: var(--app-muted);
+  }
+  i {
+    margin-top: 0.3rem;
+    color: var(--app-accent);
+  }
+}
+
+.app-404 {
+  padding: 3rem 0;
+  text-align: center;
+
+  &__code {
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    background: var(--app-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
