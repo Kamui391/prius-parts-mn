@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nameMn": "Жишээ дэлгүүр 1", "nameEn": "Sample shop 1", "type": "shop" },
+  { "id": 2, "nameMn": "Жишээ дэлгүүр 2", "nameEn": "Sample shop 2", "type": "shop" },
+  { "id": 3, "nameMn": "Жишээ засварын төв", "nameEn": "Sample repair garage", "type": "garage" },
+  { "id": 4, "nameMn": "Жишээ импортлогч", "nameEn": "Sample importer", "type": "importer" }
+]

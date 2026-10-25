@@ -1,0 +1,71 @@
+// ===== Зургийн галерей (modal) =====
+.app-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  animation: app-fade 0.2s ease both;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 12, 16, 0.92);
+  }
+  &__figure {
+    position: relative;
+    max-width: min(92vw, 960px);
+    margin: 0;
+  }
+  &__image {
+    display: block;
+    // SVG-д өөрийн хэмжээ байхгүй тул өндөр, харьцааг заавал заана
+    width: auto;
+    max-width: 92vw;
+    height: min(72vh, 640px);
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: $radius-sm;
+    background: var(--app-surface-2);
+  }
+  &__caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+  }
+  &__btn {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    &.is-close {
+      top: 1rem;
+      right: 1rem;
+    }
+    &.is-prev {
+      left: 1rem;
+      top: 50%;
+    }
+    &.is-next {
+      right: 1rem;
+      top: 50%;
+    }
+  }
+}
+
+body.has-modal-open {
+  overflow: hidden;
+}

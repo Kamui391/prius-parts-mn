@@ -290,3 +290,17 @@
     color: transparent;
   }
 }
+
+// Нүүр хуудасны үеийн картууд одоо холбоос (<a>) болсон
+a.app-gen {
+  display: block;
+  color: inherit;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--app-accent);
+  }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Engine air filter">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#1f3a5f"/><stop offset="1" stop-color="#4f8fd9"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><circle cx="400" cy="285" r="85"/><circle cx="400" cy="285" r="30"/><path d="M400 165v40M400 365v40M280 285h40M480 285h40M315 200l28 28M457 342l28 28M485 200l-28 28M343 342l-28 28"/></g>
+  <text x="40" y="540" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#fff">Engine air filter</text>
+  <text x="40" y="578" font-family="system-ui, sans-serif" font-size="22" fill="#fff" opacity="0.8">DEMO-ENG-004 · 2/2</text>
+  <rect x="40" y="36" width="116" height="40" rx="20" fill="#fff" opacity="0.2"/>
+  <text x="98" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#fff">DEMO</text>
+</svg>

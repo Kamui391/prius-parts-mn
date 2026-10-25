@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Front bumper">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#2b3a42"/><stop offset="1" stop-color="#7f98a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><path d="M230 330l30-85a40 40 0 0 1 38-27h204a40 40 0 0 1 38 27l30 85v45H230z"/><circle cx="305" cy="385" r="32" fill="#0b1f2a"/><circle cx="495" cy="385" r="32" fill="#0b1f2a"/><path d="M290 250h220"/></g>
+  <text x="40" y="540" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#fff">Front bumper</text>
+  <text x="40" y="578" font-family="system-ui, sans-serif" font-size="22" fill="#fff" opacity="0.8">DEMO-BDY-001 · 2/2</text>
+  <rect x="40" y="36" width="116" height="40" rx="20" fill="#fff" opacity="0.2"/>
+  <text x="98" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#fff">DEMO</text>
+</svg>

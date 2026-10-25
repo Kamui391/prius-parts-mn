@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Stabilizer link">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#3d2a6b"/><stop offset="1" stop-color="#9b7bea"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.92"><path d="M400 150v40M335 190h130l-65 25 65 25-130 25 130 25-65 25h-65M400 315v20" /><path d="M400 340v90"/><circle cx="400" cy="450" r="14"/></g>
+  <text x="40" y="540" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#fff">Stabilizer link</text>
+  <text x="40" y="578" font-family="system-ui, sans-serif" font-size="22" fill="#fff" opacity="0.8">DEMO-SUS-004 · 2/2</text>
+  <rect x="40" y="36" width="116" height="40" rx="20" fill="#fff" opacity="0.2"/>
+  <text x="98" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#fff">DEMO</text>
+</svg>

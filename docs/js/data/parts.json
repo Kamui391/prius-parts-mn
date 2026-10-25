@@ -1,0 +1,246 @@
+{
+  "meta": { "demo": true, "updated": "2026-10-22", "currency": "MNT" },
+  "parts": [
+    {
+      "id": 1,
+      "nameMn": "Хибрид батарей",
+      "nameEn": "Hybrid battery pack",
+      "partNumber": "DEMO-BAT-001",
+      "category": "battery",
+      "generations": ["gen2", "gen3"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 1655000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 1855000, "condition": "used" },
+        { "supplierId": 4, "priceMnt": 2760000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 2,
+      "nameMn": "12В туслах аккумулятор",
+      "nameEn": "12V auxiliary battery",
+      "partNumber": "DEMO-BAT-002",
+      "category": "battery",
+      "generations": ["gen2", "gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 315000, "condition": "new" },
+        { "supplierId": 2, "priceMnt": 240000, "condition": "used" },
+        { "supplierId": 4, "priceMnt": 185000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 3,
+      "nameMn": "Усны насос",
+      "nameEn": "Water pump",
+      "partNumber": "DEMO-ENG-001",
+      "category": "engine",
+      "generations": ["gen2", "gen3"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 155000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 165000, "condition": "new" },
+        { "supplierId": 3, "priceMnt": 130000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 4,
+      "nameMn": "Хүчилтөрөгчийн мэдрэгч",
+      "nameEn": "Oxygen sensor",
+      "partNumber": "DEMO-ENG-002",
+      "category": "engine",
+      "generations": ["gen2", "gen3", "gen4"],
+      "offers": [
+        { "supplierId": 2, "priceMnt": 100000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 150000, "condition": "new" },
+        { "supplierId": 4, "priceMnt": 120000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 5,
+      "nameMn": "Гал асаагуур (комплект)",
+      "nameEn": "Spark plug set",
+      "partNumber": "DEMO-ENG-003",
+      "category": "engine",
+      "generations": ["gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 85000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 135000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 6,
+      "nameMn": "Хөдөлгүүрийн агаарын шүүлтүүр",
+      "nameEn": "Engine air filter",
+      "partNumber": "DEMO-ENG-004",
+      "category": "engine",
+      "generations": ["gen2", "gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 50000, "condition": "new" },
+        { "supplierId": 2, "priceMnt": 40000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 40000, "condition": "new" },
+        { "supplierId": 4, "priceMnt": 30000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 7,
+      "nameMn": "Урд тоормосны дэвсгэр",
+      "nameEn": "Front brake pads",
+      "partNumber": "DEMO-BRK-001",
+      "category": "brakes",
+      "generations": ["gen2", "gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 110000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 120000, "condition": "new" },
+        { "supplierId": 3, "priceMnt": 95000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 8,
+      "nameMn": "Хойд тоормосны диск",
+      "nameEn": "Rear brake disc",
+      "partNumber": "DEMO-BRK-002",
+      "category": "brakes",
+      "generations": ["gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 2, "priceMnt": 105000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 160000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 9,
+      "nameMn": "Тоормосны үндсэн цилиндр",
+      "nameEn": "Brake master cylinder",
+      "partNumber": "DEMO-BRK-003",
+      "category": "brakes",
+      "generations": ["gen2", "gen3"],
+      "offers": [
+        { "supplierId": 4, "priceMnt": 350000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 10,
+      "nameMn": "Урд амортизатор",
+      "nameEn": "Front shock absorber",
+      "partNumber": "DEMO-SUS-001",
+      "category": "suspension",
+      "generations": ["gen2", "gen3", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 245000, "condition": "new" },
+        { "supplierId": 3, "priceMnt": 265000, "condition": "new" },
+        { "supplierId": 4, "priceMnt": 145000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 11,
+      "nameMn": "Хойд амортизатор",
+      "nameEn": "Rear shock absorber",
+      "partNumber": "DEMO-SUS-002",
+      "category": "suspension",
+      "generations": ["gen3", "gen4"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 175000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 185000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 12,
+      "nameMn": "Рулийн тягын үзүүр",
+      "nameEn": "Tie rod end",
+      "partNumber": "DEMO-SUS-003",
+      "category": "suspension",
+      "generations": ["gen2", "gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 70000, "condition": "new" },
+        { "supplierId": 2, "priceMnt": 55000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 85000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 13,
+      "nameMn": "Тогтворжуулагчийн тулгуур",
+      "nameEn": "Stabilizer link",
+      "partNumber": "DEMO-SUS-004",
+      "category": "suspension",
+      "generations": ["gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 2, "priceMnt": 60000, "condition": "new" },
+        { "supplierId": 3, "priceMnt": 50000, "condition": "used" },
+        { "supplierId": 4, "priceMnt": 70000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 14,
+      "nameMn": "Урд бампер",
+      "nameEn": "Front bumper",
+      "partNumber": "DEMO-BDY-001",
+      "category": "body",
+      "generations": ["gen3"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 540000, "condition": "new" },
+        { "supplierId": 4, "priceMnt": 415000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 15,
+      "nameMn": "Хажуугийн толь",
+      "nameEn": "Side mirror",
+      "partNumber": "DEMO-BDY-002",
+      "category": "body",
+      "generations": ["gen2", "gen3", "gen4"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 225000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 240000, "condition": "new" },
+        { "supplierId": 4, "priceMnt": 260000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 16,
+      "nameMn": "Салоны агаарын шүүлтүүр",
+      "nameEn": "Cabin air filter",
+      "partNumber": "DEMO-BDY-003",
+      "category": "body",
+      "generations": ["gen2", "gen3", "gen4", "alpha"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 35000, "condition": "new" },
+        { "supplierId": 2, "priceMnt": 30000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 45000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 17,
+      "nameMn": "Урд фар",
+      "nameEn": "Headlight",
+      "partNumber": "DEMO-LGT-001",
+      "category": "lights",
+      "generations": ["gen3", "gen4"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 470000, "condition": "used" },
+        { "supplierId": 3, "priceMnt": 525000, "condition": "used" },
+        { "supplierId": 4, "priceMnt": 780000, "condition": "new" }
+      ]
+    },
+    {
+      "id": 18,
+      "nameMn": "Хойд гэрэл",
+      "nameEn": "Tail light",
+      "partNumber": "DEMO-LGT-002",
+      "category": "lights",
+      "generations": ["gen2", "gen3", "alpha"],
+      "offers": [
+        { "supplierId": 2, "priceMnt": 260000, "condition": "used" },
+        { "supplierId": 4, "priceMnt": 275000, "condition": "used" }
+      ]
+    },
+    {
+      "id": 19,
+      "nameMn": "Манангийн гэрэл",
+      "nameEn": "Fog light",
+      "partNumber": "DEMO-LGT-003",
+      "category": "lights",
+      "generations": ["gen3", "gen4"],
+      "offers": [
+        { "supplierId": 1, "priceMnt": 120000, "condition": "used" },
+        { "supplierId": 2, "priceMnt": 130000, "condition": "new" },
+        { "supplierId": 3, "priceMnt": 100000, "condition": "used" }
+      ]
+    }
+  ]
+}

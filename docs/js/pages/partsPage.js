@@ -1,106 +1,100 @@
 import { t } from "../core/i18n.js";
-import { categories, generations } from "../data/catalog.js";
+import { formatDate } from "../core/format.js";
 import { mountPage, renderHero, renderSection } from "../layouts/pageLayout.js";
+import { renderSidebarPageLayout, bindSidebarToggle } from "../layouts/sidebarPageLayout.js";
+import { renderSearchNameSidebar } from "../components/searchNameSidebar.js";
+import { renderCategoryListSidebar } from "../components/categoryListSidebar.js";
+import { renderSearchSettingsSidebar } from "../components/searchSettingsSidebar.js";
+import { loadParts, loadMeta, getPriceBounds } from "../services/partService.js";
+import { loadSupplierMap } from "../services/supplierService.js";
+import { loadImageMap } from "../services/imageService.js";
+import { readFiltersFromUrl } from "../fn/searchState.js";
+import { initPartsSearch } from "../fn/searchEvents.js";
 
-// Хэрэглэгчийн сонголтыг модуль дотор хадгална. Хуудас дахин зурагдсан ч (жишээ нь хэл солигдоход) алдагдахгүй.
-const filters = { query: "", generation: null, category: null };
+// Өгөгдөл ачаалж дуустал хэрэглэгч өөр хуудас руу шилжиж магадгүй. Хуучин хүсэлтийн үр дүн
+// шинэ хуудсыг дарж бичихгүйн тулд render бүрийг дугаарлаж, хамгийн сүүлийнхийг л зурна.
+let renderId = 0;
 
-function updateSummary() {
-  const parts = [];
-
-  if (filters.query.trim()) parts.push(`“${filters.query.trim()}”`);
-
-  const generation = generations.find((item) => item.id === filters.generation);
-  if (generation) parts.push(generation.name);
-
-  const category = categories.find((item) => item.id === filters.category);
-  if (category) parts.push(t(category.key));
-
-  // textContent ашигласан тул хэрэглэгчийн бичсэн текст HTML болж задрахгүй
-  document.getElementById("partSummary").textContent = parts.length
-    ? `${t("parts.summaryLabel")}: ${parts.join(" · ")}`
-    : t("parts.summaryNone");
+function renderHeader() {
+  return renderHero({ compact: true, title: t("parts.title"), text: t("parts.text") });
 }
 
-function syncChips() {
-  document.querySelectorAll("[data-gen]").forEach((chip) => {
-    chip.classList.toggle("is-active", chip.dataset.gen === filters.generation);
-  });
-  document.querySelectorAll("[data-category]").forEach((chip) => {
-    chip.classList.toggle("is-active", chip.dataset.category === filters.category);
-  });
-}
-
-function bindFilters() {
-  const input = document.getElementById("partQuery");
-  input.value = filters.query;
-  input.addEventListener("input", () => {
-    filters.query = input.value;
-    updateSummary();
-  });
-
-  document.querySelectorAll("[data-gen]").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      filters.generation = filters.generation === chip.dataset.gen ? null : chip.dataset.gen;
-      syncChips();
-      updateSummary();
-    });
-  });
-
-  document.querySelectorAll("[data-category]").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      filters.category = filters.category === chip.dataset.category ? null : chip.dataset.category;
-      syncChips();
-      updateSummary();
-    });
-  });
-
-  syncChips();
-  updateSummary();
-}
-
-export function renderPartsPage() {
-  const generationChips = generations
-    .map((item) => `<button type="button" class="app-chip" data-gen="${item.id}">${item.name}</button>`)
-    .join("");
-
-  const categoryChips = categories
-    .map(
-      (item) => `
-        <button type="button" class="app-chip" data-category="${item.id}">
-          <i class="fas ${item.icon}"></i>${t(item.key)}
-        </button>`,
-    )
-    .join("");
-
+function renderLoading() {
   mountPage(
-    `
-    ${renderHero({ compact: true, title: t("parts.title"), text: t("parts.text") })}
-    ${renderSection({
-      content: `
-        <div class="app-panel">
-          <div class="field">
-            <div class="control has-icons-left">
-              <input id="partQuery" class="input is-medium app-input" type="search"
-                     placeholder="${t("parts.placeholder")}" />
-              <span class="icon is-left"><i class="fas fa-magnifying-glass"></i></span>
-            </div>
-          </div>
-          <p class="app-label">${t("parts.generation")}</p>
-          <div class="app-chips">${generationChips}</div>
-          <p class="app-label">${t("parts.category")}</p>
-          <div class="app-chips">${categoryChips}</div>
-          <p class="app-summary" id="partSummary"></p>
-        </div>
-        <div class="app-empty">
-          <i class="fas fa-database"></i>
-          <h3>${t("parts.emptyTitle")}</h3>
-          <p>${t("parts.emptyText")}</p>
-        </div>`,
-    })}
-    `,
+    `${renderHeader()}${renderSection({ content: `<p class="app-loading">${t("results.loading")}</p>` })}`,
     "page-parts",
   );
+}
 
-  bindFilters();
+function renderError() {
+  mountPage(
+    `${renderHeader()}${renderSection({
+      content: `
+        <div class="app-empty">
+          <i class="fas fa-triangle-exclamation"></i>
+          <h3>${t("results.error")}</h3>
+          <button type="button" id="retry" class="button app-btn app-btn--solid mt-4">${t("results.retry")}</button>
+        </div>`,
+    })}`,
+    "page-parts",
+  );
+  document.getElementById("retry").addEventListener("click", renderPartsPage);
+}
+
+export async function renderPartsPage() {
+  const id = ++renderId;
+  readFiltersFromUrl();
+  renderLoading();
+
+  try {
+    const [parts, meta, supplierMap, imageMap] = await Promise.all([
+      loadParts(),
+      loadMeta(),
+      loadSupplierMap(),
+      loadImageMap(),
+    ]);
+
+    // Өөр хуудас руу шилжсэн эсвэл шинэ render эхэлсэн бол зогсооно
+    if (id !== renderId || !window.location.hash.startsWith("#/parts")) return;
+
+    const updated = formatDate(meta.updated);
+
+    const notice = meta.demo
+      ? `<div class="container">
+           <p class="app-notice">
+             <i class="fas fa-circle-info"></i>
+             <span>${t("results.demoNotice")} ${t("results.updated")}: ${updated}</span>
+           </p>
+         </div>`
+      : "";
+
+    mountPage(
+      `
+      ${renderHeader()}
+      ${notice}
+      ${renderSidebarPageLayout({
+        sidebar:
+          renderSearchNameSidebar() +
+          renderCategoryListSidebar() +
+          renderSearchSettingsSidebar(getPriceBounds(parts)),
+        toolbar: `
+          <div class="app-toolbar">
+            <button type="button" id="sidebarOpen" class="button app-btn app-btn--solid is-hidden-desktop">
+              <i class="fas fa-sliders"></i>&nbsp;${t("filters.open")}
+            </button>
+            <p id="resultCount" class="app-toolbar__count" aria-live="polite"></p>
+          </div>`,
+        content: `<div id="partResults"></div>`,
+      })}
+      `,
+      "page-parts",
+    );
+
+    bindSidebarToggle();
+    initPartsSearch(document.getElementById("page-parts"), { parts, supplierMap, imageMap });
+  } catch (error) {
+    if (id !== renderId) return;
+    console.error(error);
+    renderError();
+  }
 }

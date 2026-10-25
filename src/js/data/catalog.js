@@ -15,3 +15,5 @@ export const generations = [
   { id: "gen4", name: "Gen 4", years: "2015–2022" },
   { id: "alpha", name: "Prius α", years: "2011–2021" },
 ];
+
+export const getCategory = (id) => categories.find((item) => item.id === id);

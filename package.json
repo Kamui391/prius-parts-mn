@@ -6,7 +6,11 @@
     "sass": "sass --watch --no-source-map --quiet-deps --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function src/scss/main.scss src/css/main.css",
     "build:css": "sass --no-source-map --quiet-deps --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function --style=compressed src/scss/main.scss src/css/main.css",
     "docs": "node tools/copy-docs.js",
-    "build": "npm run build:css && npm run docs",
+    "validate": "node tools/validateData.js",
+    "check:locales": "node tools/checkLocales.js",
+    "placeholders": "node tools/makePlaceholders.js",
+    "images": "node tools/buildImages.js",
+    "build": "npm run validate && npm run check:locales && npm run images && npm run build:css && npm run docs",
     "start": "npx http-server src -p 5500 -c-1"
   },
   "keywords": [],

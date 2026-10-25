@@ -2,6 +2,10 @@ import { t } from "../core/i18n.js";
 import { categories, generations } from "../data/catalog.js";
 import { mountPage, renderHero, renderSection } from "../layouts/pageLayout.js";
 
+// Нүүр хуудаснаас хайлтын хуудас руу шүүлтүүртэй нь холбоно: #/parts?cat=battery
+const categoryLink = (item) => `#/parts?cat=${item.id}`;
+const generationLink = (item) => `#/parts?gen=${item.id}`;
+
 export function renderHomePage() {
   const features = [
     { icon: "fa-scale-balanced", title: t("home.f1Title"), text: t("home.f1Text") },
@@ -23,7 +27,7 @@ export function renderHomePage() {
   const categoryTiles = categories
     .map(
       (item) => `
-        <a class="app-tile" href="#/parts">
+        <a class="app-tile" href="${categoryLink(item)}">
           <i class="fas ${item.icon}"></i>
           <span>${t(item.key)}</span>
         </a>`,
@@ -33,10 +37,10 @@ export function renderHomePage() {
   const generationCards = generations
     .map(
       (item) => `
-        <div class="app-gen">
+        <a class="app-gen" href="${generationLink(item)}">
           <strong>${item.name}</strong>
           <span>${item.years}</span>
-        </div>`,
+        </a>`,
     )
     .join("");
 
